@@ -1,5 +1,11 @@
 <div class="jumbotron center"> <!-- puts grey box around things -->
 	<h1>Welcome to the brand new app!</h1>
-	<%= link_to "Log in", "#", class: "btn btn-default btn-lg" %>
-	<%= link_to "Sign up", "#", class: "btn btn-primary btn-lg" %>
+	<% if user_signed_in? %>
+		<p>You are now on the <i>inside</i></p>
+	<% else %>
+		<p>
+			<%= link_to "Log in", new_user_session_path, class: "btn btn-default btn-lg" %>
+			<%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+		</p>
+	<% end %>
 </div>
